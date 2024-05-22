@@ -49,9 +49,7 @@ import express from "express";
 // client.initialize();
 
 function handleDefault(req, res) {
-    res.status(200).json({
-        qrCodeText: currentQrText,
-    });
+    res.status(200).send("Oke");
 }
 
 const port = "8300";
