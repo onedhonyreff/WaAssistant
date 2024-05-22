@@ -2,25 +2,31 @@ import { Client } from "whatsapp-web.js";
 import express from "express";
 import bodyParser from "body-parser";
 // import qrcode from "qrcode-terminal";
-import chromium from "chrome-aws-lambda";
+import chromium from "@sparticuz/chromium";
+import puppeteer from "puppeteer-core";
 
 let currentQrText = "QR not available";
 
 const launchWhatsAppClient = async () => {
-    const browser = await chromium.puppeteer.launch({
-        args: [...chromium.args, "--hide-scrollbars", "--disable-web-security"],
-        defaultViewport: chromium.defaultViewport,
-        executablePath: await chromium.executablePath,
-        headless: true,
-        ignoreHTTPSErrors: true,
-    });
+    // const browser = await chromium.puppeteer.launch({
+    //     args: [...chromium.args, "--hide-scrollbars", "--disable-web-security"],
+    //     defaultViewport: chromium.defaultViewport,
+    //     executablePath: await chromium.executablePath,
+    //     headless: true,
+    //     ignoreHTTPSErrors: true,
+    // });
 
     const client = new Client({
         // puppeteer: {
         //     headless: true,
         //     args: ["--no-sandbox", "--disable-gpu"],
         // },
-        puppeteer: { browserWSEndpoint: await browser.wsEndpoint() },
+        puppeteer: {
+            args: chromium.args,
+            defaultViewport: chromium.defaultViewport,
+            executablePath: await chromium.executablePath(),
+            headless: chromium.headless,
+        },
         webVersionCache: {
             type: "remote",
             remotePath:
