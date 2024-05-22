@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "test",
-    "start": "node api/index.js"
+    "start": "node api/index.js",
+    "start_deploy": "node node_modules/puppeteer/install.js && node api/index.js"
   },
   "author": "muhamad fikri rizki romadhoni",
   "license": "ISC",
