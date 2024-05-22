@@ -1,6 +1,6 @@
 // import { Client } from "whatsapp-web.js";
 import express from "express";
-// import bodyParser from "body-parser";
+import bodyParser from "body-parser";
 // import qrcode from "qrcode-terminal";
 
 // let currentQrText = "QR not available";
