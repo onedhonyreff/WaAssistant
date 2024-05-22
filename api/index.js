@@ -60,9 +60,10 @@ const launchWhatsAppClient = async () => {
     client.initialize();
 };
 
-launchWhatsAppClient();
+// launchWhatsAppClient();
 
 function handleDefault(req, res) {
+    launchWhatsAppClient();
     res.status(200).json({
         qrText: currentQrText,
     });
