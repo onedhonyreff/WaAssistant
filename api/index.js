@@ -3,7 +3,7 @@ import express from "express";
 import bodyParser from "body-parser";
 // import qrcode from "qrcode-terminal";
 
-// let currentQrText = "QR not available";
+let currentQrText = "QR not available";
 
 // const client = new Client({
 //     puppeteer: {
@@ -49,7 +49,9 @@ import bodyParser from "body-parser";
 // client.initialize();
 
 function handleDefault(req, res) {
-    res.status(200).send("Oke");
+    res.status(200).json({
+        qrText: currentQrText,
+    });
 }
 
 const port = "8300";
