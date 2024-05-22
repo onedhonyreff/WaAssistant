@@ -68,7 +68,7 @@ function handleDefault(req, res) {
     });
 }
 
-const port = "8300";
+const port = "8000";
 
 const app = express();
 app.use(bodyParser.json());
