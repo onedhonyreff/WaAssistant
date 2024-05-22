@@ -1,3 +1,3 @@
-## ChatGPT API Reverse for Free (development)
+## WhatsApp Assistant (development)
 
 development period
